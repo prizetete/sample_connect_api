@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sample_connect_api/constant.dart';
-import 'package:sample_connect_api/dio_retrofit/api_client.dart';
+import 'package:sample_connect_api/dio_retrofit/api_client/api_client.dart';
 
 @module
 abstract class DioModule {

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:sample_connect_api/dio_retrofit/api_client.dart';
-import 'package:sample_connect_api/freezed/models/user.dart';
+import 'package:sample_connect_api/dio_retrofit/api_client/api_client.dart';
+import 'package:sample_connect_api/freezed/models/user/user.dart';
 import 'package:sample_connect_api/repositories/user_repository.dart';
 
 @LazySingleton(as: IUserRepository)

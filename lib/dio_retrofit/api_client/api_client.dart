@@ -1,7 +1,8 @@
 // lib/core/api/api_client.dart
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:sample_connect_api/freezed/models/user.dart';
+import 'package:sample_connect_api/constant.dart';
+import 'package:sample_connect_api/freezed/models/user/user.dart';
 
 part 'api_client.g.dart';
 
@@ -9,10 +10,10 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
 
-  @GET('/users')
+  @GET(Constants.usersPath)
   Future<List<User>> getUsers();
 
-  @GET('/users/{id}')
+  @GET(Constants.userByIdPath)
   Future<User> getUserById(@Path('id') int id);
 }
 

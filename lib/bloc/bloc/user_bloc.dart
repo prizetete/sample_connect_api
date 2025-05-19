@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_connect_api/freezed/models/user.dart';
+import 'package:sample_connect_api/freezed/models/user/user.dart';
 import 'package:sample_connect_api/repositories/user_repository.dart';
 
 part 'user_event.dart';

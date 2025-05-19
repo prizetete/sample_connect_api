@@ -1,4 +1,4 @@
-import 'package:sample_connect_api/freezed/models/user.dart';
+import 'package:sample_connect_api/freezed/models/user/user.dart';
 
 abstract class IUserRepository {
   Future<List<User>> fetchUsers();

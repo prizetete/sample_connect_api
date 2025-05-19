@@ -59,7 +59,7 @@ class UserPage extends StatelessWidget {
           child: BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {
               if (state is UserLoaded) {
-                var ppp = state.user.first.id;
+                var ppp = state.user.last.id;
                 return Text('$ppp');
               }
               return Text('fail');
