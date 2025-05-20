@@ -12,6 +12,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc(this.repository) : super(UserInitial()) {
     on<FetchUser>((event, emit) async {
       emit(UserLoading());
+      await Future.delayed(const Duration(milliseconds: 750));
       try {
         final user = await repository.fetchUsers();
         emit(UserLoaded(user));

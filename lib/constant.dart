@@ -9,3 +9,31 @@ class Constants {
 
   static const String randomImagePath = '/random';
 }
+
+class AppRoutes {
+  AppRoutes._();
+  static const home = RouteData(name: 'home', path: '/');
+  static const buttonComponent = RouteData(name: 'button', path: '/button');
+  static const textComponent = RouteData(name: 'text', path: '/text');
+  static const layoutComponent = RouteData(name: 'layout', path: '/layout');
+  static const displayComponent = RouteData(name: 'display', path: '/display');
+  // List all your routes here
+  static const listViewComponent = RouteData(
+    name: 'listview',
+    path: '/listview',
+  );
+  static const pageViewComponent = RouteData(
+    name: 'pageview',
+    path: '/pageview',
+  );
+  static const gridViewComponent = RouteData(
+    name: 'gridview',
+    path: '/gridview',
+  );
+}
+
+class RouteData {
+  final String name;
+  final String path;
+  const RouteData({required this.name, required this.path});
+}
