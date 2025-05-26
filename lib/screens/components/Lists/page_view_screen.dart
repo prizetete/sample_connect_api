@@ -42,7 +42,7 @@ class _PageViewExampleState extends State<PageViewExample>
 
   List<Widget> pages = [
     const GridScreen(isShowAppbar: false),
-    ListViewScreen(isShowAppbar: false),
+    const ListViewScreen(isShowAppbar: false),
   ];
 
   @override

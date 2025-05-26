@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sample_connect_api/constant.dart';
 import 'package:sample_connect_api/getit/locator.dart';
 import 'package:sample_connect_api/repositories/user_repository.dart';
+import 'package:sample_connect_api/screens/components/Interactive_viewer_screen.dart';
 import 'package:sample_connect_api/screens/components/Lists/grid_screen.dart';
 import 'package:sample_connect_api/screens/components/Lists/page_view_screen.dart';
 import 'package:sample_connect_api/screens/components/Lists/list_view_screen.dart';
@@ -82,6 +83,11 @@ class MyApp extends StatelessWidget {
           path: AppRoutes.gridViewComponent.path,
           name: AppRoutes.gridViewComponent.name,
           builder: (context, state) => GridScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.interactiveComponent.path,
+          name: AppRoutes.interactiveComponent.name,
+          builder: (context, state) => InteractiveViewerScreen(),
         ),
         // GoRoute(
         //   path: '/detail/:id',

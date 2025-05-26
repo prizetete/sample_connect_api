@@ -66,6 +66,17 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
+              SizedBox(height: 10),
+              TextButton(
+                onPressed: () {
+                  context.pushNamed(AppRoutes.interactiveComponent.name);
+                },
+                style: TextButton.styleFrom(backgroundColor: Colors.pink),
+                child: const Text(
+                  'Interactive Viewer',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ],
           ),
         ),

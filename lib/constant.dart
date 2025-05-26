@@ -17,6 +17,10 @@ class AppRoutes {
   static const textComponent = RouteData(name: 'text', path: '/text');
   static const layoutComponent = RouteData(name: 'layout', path: '/layout');
   static const displayComponent = RouteData(name: 'display', path: '/display');
+  static const interactiveComponent = RouteData(
+    name: 'interactive',
+    path: '/interactive',
+  );
   // List all your routes here
   static const listViewComponent = RouteData(
     name: 'listview',

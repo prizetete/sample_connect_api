@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sample_connect_api/bloc/bloc/user_bloc.dart';
 import 'package:sample_connect_api/getit/locator.dart';
 import 'package:sample_connect_api/repositories/user_repository.dart';
+import 'package:sample_connect_api/utils/utils.dart';
 
 class ListViewScreen extends StatelessWidget {
   const ListViewScreen({super.key, this.isShowAppbar = true});
@@ -37,60 +38,70 @@ class ListViewScreen extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: appBar,
-        body: Column(
+        body: Stack(
           children: [
-            SizedBox(
-              height: 120,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 100,
-                    margin: const EdgeInsets.only(right: 12.0),
-                    decoration: BoxDecoration(
-                      color: Colors.blueGrey,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      items[index],
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  );
-                },
-              ),
-            ),
-            Expanded(
-              child: BlocBuilder<UserBloc, UserState>(
-                builder: (context, state) {
-                  if (state is UserLoaded) {
-                    return ListView.builder(
-                      itemCount: state.user.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            title: Text(
-                              '${index + 1}.${state.user[index].name}',
+            BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                if (state is UserLoaded) {
+                  return ListView(
+                    children: [
+                      horizontalListView(items),
+                      ListView.builder(
+                        shrinkWrap:
+                            true, // เพื่อบอกให้มันวัดความสูงตามจำนวนไอเท็ม
+                        physics:
+                            NeverScrollableScrollPhysics(), //เพื่อปิดการเลื่อนภายใน แล้วใช้การเลื่อนของ ListView หลักแทน
+                        itemCount: state.user.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: ListTile(
+                              title: Text(
+                                '${index + 1}.${state.user[index].name}',
+                              ),
+                              subtitle: Text(state.user[index].email),
+                              leading: const Icon(Icons.list),
+                              trailing: const Icon(Icons.arrow_forward),
+                              onTap: () {
+                                // Handle tap
+                              },
                             ),
-                            subtitle: Text(state.user[index].email),
-                            leading: const Icon(Icons.list),
-                            trailing: const Icon(Icons.arrow_forward),
-                            onTap: () {
-                              // Handle tap
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                },
-              ),
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget horizontalListView(List<String> items) {
+    return SizedBox(
+      height: 120,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 100,
+            margin: const EdgeInsets.only(right: 12.0),
+            decoration: BoxDecoration(
+              color: getRandomColor(),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              items[index],
+              style: const TextStyle(color: Colors.white),
+            ),
+          );
+        },
       ),
     );
   }
