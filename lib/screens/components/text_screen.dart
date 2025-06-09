@@ -27,35 +27,44 @@ class _TextScreenState extends State<TextScreen> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            children: [
-              textWidget('Text Widget'),
-              const SizedBox(height: 10),
-              richTextWidget(),
-              const SizedBox(height: 10),
-              textFieldWidget(),
-              const SizedBox(height: 10),
-              textFormFieldWidget(),
-              const SizedBox(height: 10),
-              checkboxWidget(),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [...radioButtons(4)],
+      body: SafeArea(
+        bottom: true,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Column(
+                children: [
+                  textWidget('Text Widget'),
+                  const SizedBox(height: 10),
+                  richTextWidget(),
+                  const SizedBox(height: 10),
+                  textFieldWidget(),
+                  const SizedBox(height: 10),
+                  textFormFieldWidget(),
+                  const SizedBox(height: 10),
+                  checkboxWidget(),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [...radioButtons(4)],
+                  ),
+                  const SizedBox(height: 10),
+                  switchWidget(),
+                  const SizedBox(height: 10),
+                  Text('Slider Value: ${sliderValue.toStringAsFixed(2)}'),
+                  sliderWidget(),
+                  const SizedBox(height: 10),
+                  dropdownButtonWidget(),
+                  const SizedBox(height: 10),
+                  dropdownMenuWidget(),
+                  const SizedBox(height: 10),
+                  textAlignment(),
+                  const SizedBox(height: 10),
+                  textAlignment(leftCross: CrossAxisAlignment.end),
+                ],
               ),
-              const SizedBox(height: 10),
-              switchWidget(),
-              const SizedBox(height: 10),
-              Text('Slider Value: ${sliderValue.toStringAsFixed(2)}'),
-              sliderWidget(),
-              const SizedBox(height: 10),
-              dropdownButtonWidget(),
-              const SizedBox(height: 10),
-              dropdownMenuWidget(),
-            ],
+            ),
           ),
         ),
       ),
@@ -222,6 +231,43 @@ class _TextScreenState extends State<TextScreen> {
           _selectedDropDownValue = value;
         });
       },
+    );
+  }
+
+  Widget textAlignment({
+    CrossAxisAlignment leftCross = CrossAxisAlignment.start,
+  }) {
+    return Container(
+      color: Colors.red,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: leftCross,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Text('data1'),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    'data2\ndowqodkwกหไๆๆฟกไๆกwpdกกกหฟกหฟกหฟกหฟกหฟกหฟกหฟกหฟกหฟกฟหกหฟกก',
+                    softWrap: true,
+                    // maxLines: 2,
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Text('data'),
+        ],
+      ),
     );
   }
 }

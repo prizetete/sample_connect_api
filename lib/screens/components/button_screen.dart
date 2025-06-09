@@ -22,21 +22,27 @@ class ButtonScreen extends StatelessWidget {
               onPressed: () {},
               style: TextButton.styleFrom(backgroundColor: Colors.red),
               child: const Text(
-                'TextButton',
+                'TextButton (ปุ่มข้อความล้วน)',
                 style: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              style: ElevatedButton.styleFrom(
+                elevation: 5.0,
+                backgroundColor: Colors.blue,
+              ),
               child: const Text(
-                'ElevatedButton',
+                'ElevatedButton (ปุ่มพื้นมีเงา)',
                 style: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 10),
-            OutlinedButton(onPressed: () {}, child: Text('OutlinedButton')),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text('OutlinedButton (ปุ่มขอบเส้น)'),
+            ),
             SizedBox(height: 10),
             IconButton(
               onPressed: () {},
@@ -81,18 +87,21 @@ class ButtonScreen extends StatelessWidget {
         onPressed: () {},
         backgroundColor: Colors.red,
         child: const Icon(Icons.add),
+        heroTag: UniqueKey(),
       ),
       const SizedBox(width: 10),
       FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add),
+        heroTag: UniqueKey(),
       ),
       const SizedBox(width: 10),
       FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.green,
         child: const Icon(Icons.add),
+        heroTag: UniqueKey(),
       ),
     ];
     return list;

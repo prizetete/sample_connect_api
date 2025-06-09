@@ -1,3 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
+import 'dart:ui' as ui;
+
 class Constants {
   /// Base URL หลักของ API
   static const String baseUrl = 'https://jsonplaceholder.typicode.com';
@@ -10,6 +14,11 @@ class Constants {
   static const String randomImagePath = '/random';
 }
 
+class Devices {
+  static double screenWidth =
+      ui.window.physicalSize.width / ui.window.devicePixelRatio;
+}
+
 class AppRoutes {
   AppRoutes._();
   static const home = RouteData(name: 'home', path: '/');
@@ -17,6 +26,15 @@ class AppRoutes {
   static const textComponent = RouteData(name: 'text', path: '/text');
   static const layoutComponent = RouteData(name: 'layout', path: '/layout');
   static const displayComponent = RouteData(name: 'display', path: '/display');
+  static const snackNDialogComponent = RouteData(
+    name: 'snackNDialog',
+    path: '/snackNDialog',
+  );
+  static const imageRouteComponent = RouteData(
+    name: 'imageRoute',
+    path: '/imageRoute',
+  );
+  static const imageComponent = RouteData(name: 'image', path: '/image');
   static const interactiveComponent = RouteData(
     name: 'interactive',
     path: '/interactive',

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sample_connect_api/constant.dart';
+import 'package:sample_connect_api/freezed/models/user/user.dart';
 import 'package:sample_connect_api/getit/locator.dart';
 import 'package:sample_connect_api/repositories/user_repository.dart';
 import 'package:sample_connect_api/screens/components/Interactive_viewer_screen.dart';
@@ -11,9 +12,12 @@ import 'package:sample_connect_api/screens/components/Lists/page_view_screen.dar
 import 'package:sample_connect_api/screens/components/Lists/list_view_screen.dart';
 import 'package:sample_connect_api/screens/components/button_screen.dart';
 import 'package:sample_connect_api/screens/components/display_screen.dart';
+import 'package:sample_connect_api/screens/components/image_screen.dart';
 import 'package:sample_connect_api/screens/components/layout_screen.dart';
+import 'package:sample_connect_api/screens/components/snack_dialog_screen.dart';
 import 'package:sample_connect_api/screens/components/text_screen.dart';
 import 'package:sample_connect_api/screens/home_screen.dart';
+import 'package:sample_connect_api/freezed/models/image/image.dart' as img;
 
 void main() {
   configureDependencies();
@@ -88,6 +92,26 @@ class MyApp extends StatelessWidget {
           path: AppRoutes.interactiveComponent.path,
           name: AppRoutes.interactiveComponent.name,
           builder: (context, state) => InteractiveViewerScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.imageRouteComponent.path,
+          name: AppRoutes.imageRouteComponent.name,
+          builder: (context, state) => ImageRouteScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.imageComponent.path,
+          name: AppRoutes.imageComponent.name,
+          builder: (context, state) {
+            final image = state.extra as img.Image;
+            return ImageScreen(image: image);
+          },
+        ),
+        GoRoute(
+          path: AppRoutes.snackNDialogComponent.path,
+          name: AppRoutes.snackNDialogComponent.name,
+          builder: (context, state) {
+            return SnackNDialogScreen();
+          },
         ),
         // GoRoute(
         //   path: '/detail/:id',

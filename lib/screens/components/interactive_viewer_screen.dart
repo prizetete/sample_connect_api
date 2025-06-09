@@ -1,4 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:sample_connect_api/constant.dart';
 
 class InteractiveViewerScreen extends StatelessWidget {
   const InteractiveViewerScreen({super.key});
@@ -10,7 +13,6 @@ class InteractiveViewerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final TransformationController transformationController =
         TransformationController();
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Full-Width InteractiveViewer')),
@@ -32,7 +34,7 @@ class InteractiveViewerScreen extends StatelessWidget {
                   scaleEnabled: true, // เปิดปิดการซูม
                   child: Image.network(
                     imageUrl,
-                    width: screenWidth, // กำหนดให้กว้างเต็มหน้าจอ
+                    width: Devices.screenWidth, // กำหนดให้กว้างเต็มหน้าจอ
                     fit: BoxFit.fitWidth, // ปรับความสูงตามอัตราส่วนภาพ
                   ),
                 ),
